@@ -1,10 +1,23 @@
 # ExtensiveRoleCheck
 
-`ExtensiveRoleCheck` is a Python tool that scans the Kubernetes RBAC for risky roles. 
+`ExtensiveRoleCheck` is a Python tool that scans the Kubernetes RBAC for risky roles.
+
 ```
-usage: ExtensiveRoleCheck.py [-h] [--clusterRole CLUSTERROLE] [--role ROLE]  
-                           [--rolebindings ROLEBINDINGS]  
-                           [--clusterrolebindings CLUSETERROLEBINDINGS]
+usage: ExtensiveRoleCheck.py [-h] [--clusterRole CLUSTERROLE] [--role ROLE] [--rolebindings ROLEBINDINGS] [--clusterrolebindings CLUSTERROLEBINDINGS] [--pods PODS]
+                             [--outputjson [OUTPUTJSON]]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --clusterRole CLUSTERROLE
+                        ClusterRoles JSON file
+  --role ROLE           roles JSON file
+  --rolebindings ROLEBINDINGS
+                        RoleBindings JSON file
+  --clusterrolebindings CLUSTERROLEBINDINGS
+                        ClusterRoleBindings JSON file
+  --pods PODS           pods JSON file
+  --outputjson [OUTPUTJSON]
+                        Produce json files with audit report
 ```
 
 
