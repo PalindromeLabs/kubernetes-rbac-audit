@@ -18,7 +18,7 @@ def get_argument_parser():
     parser.add_argument('--clusterRole', type=str, required=False, help='ClusterRoles JSON file',)
     parser.add_argument('--role', type=str, required=False, help='roles JSON file')
     parser.add_argument('--rolebindings', type=str, required=False, help='RoleBindings JSON file')
-    parser.add_argument('--cluseterolebindings', type=str, required=False, help='ClusterRoleBindings JSON file')
+    parser.add_argument('--clusterrolebindings', type=str, required=False, help='ClusterRoleBindings JSON file')
     parser.add_argument('--pods', type=str, required=False, help='pods JSON file')
     parser.add_argument('--outputjson', type=str2bool, nargs='?', const=True, default=False, help='Produce json files with audit report')
     return parser.parse_args()
@@ -365,11 +365,11 @@ if __name__ == '__main__':
         extensive_roles = [result for result in extensiveRolesChecker.results if result not in extensive_ClusterRoles]
         extensive_roles = extensive_roles + extensive_ClusterRoles
 
-    if args.cluseterolebindings:
+    if args.clusterrolebindings:
         print(f'{Fore.WHITE}[*] Started enumerating risky ClusterRoleBinding:')
         bind_kind = 'ClusterRoleBinding'
-        clusterRoleBinding_json_file = open_file(args.cluseterolebindings)
-        extensive_clusteRoleBindings = roleBindingChecker(clusterRoleBinding_json_file, extensive_roles, bind_kind)
+        clusterRoleBinding_json_file = open_file(args.clusterrolebindings)
+        extensive_clusterRoleBindings = roleBindingChecker(clusterRoleBinding_json_file, extensive_roles, bind_kind)
 
     if args.rolebindings:
         print(f'{Fore.WHITE}[*] Started enumerating risky RoleBindings:')
@@ -379,7 +379,7 @@ if __name__ == '__main__':
 
     pods = open_file(args.pods) if args.pods else None
 
-    if (args.role and args.rolebindings) or args.clusterRole and args.cluseterolebindings:
+    if (args.role and args.rolebindings) or args.clusterRole and args.clusterrolebindings:
         print(f'{Fore.WHITE}[*] Started enumerating risky subjects:')
 
     if args.role and args.rolebindings:
@@ -391,9 +391,9 @@ if __name__ == '__main__':
             text_file.write(json.dumps(subject_viewer.get_json()))
             text_file.close()
 
-    if args.clusterRole and args.cluseterolebindings:
+    if args.clusterRole and args.clusterrolebindings:
         subject_viewer_cluster_level = SubjectViewer(
-            extensive_clusteRoleBindings.subject_risky_roles_mapping,
+            extensive_clusterRoleBindings.subject_risky_roles_mapping,
             extensiveClusterRolesChecker,
             pods
         )
