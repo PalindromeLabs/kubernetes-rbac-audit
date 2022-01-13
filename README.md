@@ -73,7 +73,7 @@ oc get pods -o json > pods.json
 ##  example & output:
 **Usage**
 ```
-python3 ExtensiveRoleCheck.py --clusterRole clusterroles.json  --role Roles.json --rolebindings rolebindings.json --cluseterolebindings clusterrolebindings.json --pods pods.json
+python3 ExtensiveRoleCheck.py --clusterRole clusterroles.json  --role Roles.json --rolebindings rolebindings.json --clusterrolebindings clusterrolebindings.json --pods pods.json
 ```
 ![Output example](https://github.com/cyberark/kubernetes-rbac-audit/blob/master/output-example.png)
 
