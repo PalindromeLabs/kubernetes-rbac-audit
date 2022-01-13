@@ -327,7 +327,7 @@ class SubjectViewer:
 
     @classmethod
     def __get_pods_for_service_account(cls, service_account_name):
-        pods_json_file = open_file('kmasuhrcluster/pods.json')
+        pods_json_file = open_file('pods.json')
         pods_to_check = pods_json_file.get('items', [])
         return [x for x in pods_to_check if x.get('spec', {}).get('serviceAccountName', '') == service_account_name]
 
