@@ -26,6 +26,7 @@ The RBAC API is a set of roles that administrators can configure to limit access
  - Pods
 
 To export those files you will need access permissions in the Kubernetes cluster. To export them, you might use the following commands:
+(NOTE: The --all-namespaces argument is optional)
 **Export RBAC Roles:**
 ```
 kubectl get roles --all-namespaces -o json > Roles.json
@@ -45,6 +46,26 @@ kubectl get clusterrolebindings -o json > clusterrolebindings.json
 **Export Pods:**
 ```
 kubectl get pods --all-namespaces -o json > pods.json
+```
+## For OpenShift ##
+```
+oc get roles -o json > Roles.json
+```
+**Export RBAC ClusterRoles:**
+```
+oc get clusterroles -o json > clusterroles.json
+```
+**Export RBAC RolesBindings:**
+```
+oc get rolebindings -o json > rolebindings.json
+```
+**Export RBAC Cluster RolesBindings:**
+```
+oc get clusterrolebindings -o json > clusterrolebindings.json
+```
+**Export Pods:**
+```
+oc get pods -o json > pods.json
 ```
 ##  example & output:
 **Usage**
