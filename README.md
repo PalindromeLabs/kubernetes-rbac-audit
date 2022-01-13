@@ -4,7 +4,7 @@
 ```
 usage: ExtensiveRoleCheck.py [-h] [--clusterRole CLUSTERROLE] [--role ROLE]  
                            [--rolebindings ROLEBINDINGS]  
-                           [--cluseterolebindings CLUSETEROLEBINDINGS]
+                           [--clusterrolebindings CLUSETERROLEBINDINGS]
 ```
 
 
