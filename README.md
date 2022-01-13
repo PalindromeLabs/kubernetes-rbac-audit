@@ -26,7 +26,7 @@ The RBAC API is a set of roles that administrators can configure to limit access
  - Pods
 
 To export those files you will need access permissions in the Kubernetes cluster. To export them, you might use the following commands:
-(NOTE: The --all-namespaces argument is optional)
+(NOTE: The `--all-namespaces` argument is optional)
 
 **Export RBAC Roles:**
 ```
