@@ -91,8 +91,8 @@ class ExtensiveRolesChecker(object):
             filtered_name = self.get_non_default_name(role_name)
             if filtered_name:
                 self._role.warning(f'{Fore.GREEN}{filtered_name}' + f'{Fore.RED} Has permission to list configmaps!')
-                self.add_result(filtered_name, 'Has permission to list configmaps!')                
-                
+                self.add_result(filtered_name, 'Has permission to list configmaps!')
+
     #Any Any roles
     def clusteradmin_role(self, rule, role_name):
         if ('*' in rule['resources'] and '*' in rule['verbs']):
@@ -401,5 +401,5 @@ if __name__ == '__main__':
 
         if args.outputjson:
             text_file = open("cluster_role_audit.json", "w")
-            text_file.write(json.dumps(subject_viewer.get_json()))
+            text_file.write(json.dumps(subject_viewer_cluster_level.get_json()))
             text_file.close()
