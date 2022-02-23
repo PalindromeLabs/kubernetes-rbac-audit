@@ -340,7 +340,7 @@ class SubjectViewer:
         if pod.get('metadata').get('labels').get('app', '') != '':
             metadata['app'] = pod.get('metadata').get('labels').get('app', '')
 
-        if len(owner_references) > 0:
+        if owner_references != None and len(owner_references) > 0:
             metadata[owner_references[0].get('kind')] = owner_references[0].get('name')
 
         if pod.get('metadata').get('labels').get('heritage', '') == 'Helm':
