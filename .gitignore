@@ -1,3 +1,14 @@
+# avoid accidental upload of json data
+# readme talks about a captial "R" Roles
+Roles.json
+roles.json
+clusterroles.json
+rolebindings.json
+clusterrolebindings.json
+pods.json
+cluster_role_audit.json
+role_audit.json
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
